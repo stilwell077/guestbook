@@ -7,6 +7,7 @@ use App\Entity\Conference;
 use App\Form\CommentType;
 use App\Repository\CommentRepository;
 use App\Repository\ConferenceRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,6 +30,7 @@ final class ConferenceController extends AbstractController
         ]);
     }
 
+    #[Route('/conference/{slug}', name: 'conference')]
     public function show(
         Request $request,
         Conference $conference,
