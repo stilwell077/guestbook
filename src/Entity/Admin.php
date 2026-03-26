@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: AdminRepository::class)]
-#[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER__ADMIN', fields: ['фв�admin'])]
+#[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
 class Admin implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -17,7 +17,7 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180)]
-    private ?string $фв�admin = null;
+    private ?string $username = null;
 
     /**
      * @var list<string> The user roles
@@ -36,14 +36,14 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->id;
     }
 
-    public function getфв�admin(): ?string
+    public function getUsername(): ?string
     {
-        return $this->фв�admin;
+        return $this->username;
     }
 
-    public function setфв�admin(string $фв�admin): static
+    public function setUsername(string $username): static
     {
-        $this->фв�admin = $фв�admin;
+        $this->username = $username;
 
         return $this;
     }
@@ -55,7 +55,7 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->фв�admin;
+        return (string) $this->username;
     }
 
     /**
