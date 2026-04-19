@@ -17,7 +17,6 @@ security:
             lazy: true
             provider: app_user_provider
             http_basic: { realm: Admin Area }
-            entry_point: form_login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
